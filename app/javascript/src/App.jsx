@@ -5,6 +5,8 @@ import { UserProvider } from "contexts/user";
 
 import Main from "./components/Main";
 
+import "lib/dayjs"; // eslint-disable-line
+
 const App = props => (
   <AuthProvider>
     <UserProvider>
