@@ -5,9 +5,9 @@ import { Typography, Tag, Dropdown, Avatar, Tooltip } from "neetoui";
 
 import { calculateCreatedAgo, calculateDateToWeekday } from "./utils";
 
-const NotesCard = ({ note }) => {
+const Card = ({ note }) => {
   const { MenuItem } = Dropdown;
-  const { title, description, createdAt } = note;
+  const { title, description, created_at } = note;
   return (
     <div className="neeto-ui-shadow-xs neeto-ui-rounded-none neeto-ui-border-gray-300 mb-4 w-full border py-3 px-4">
       <div className="flex items-center justify-between">
@@ -15,8 +15,8 @@ const NotesCard = ({ note }) => {
           {title}
         </Typography>
         <Dropdown buttonSize="small" buttonStyle="text" icon={MenuVertical}>
-          <MenuItem.Button>Edit the Note</MenuItem.Button>
-          <MenuItem.Button>Delete the Note</MenuItem.Button>
+          <MenuItem.Button>Edit</MenuItem.Button>
+          <MenuItem.Button>Delete</MenuItem.Button>
         </Dropdown>
       </div>
       <Typography className="neeto-ui-text-gray-600 leading-5" style="body2">
@@ -24,11 +24,15 @@ const NotesCard = ({ note }) => {
       </Typography>
       <hr className="my-3" />
       <div className="flex items-center justify-between">
-        <Tag label="Getting Started" style="body3" />
+        <Tag
+          className="border-1 rounded-sm bg-gray-100"
+          label="Getting Started"
+          style="body3"
+        />
         <div className="flex items-center justify-between">
           <Clock className="mr-2" color="#68737D" size={16} />
           <Tooltip
-            content={calculateDateToWeekday(createdAt)}
+            content={calculateDateToWeekday(created_at)}
             followCursor="horizontal"
             position="bottom"
           >
@@ -36,7 +40,7 @@ const NotesCard = ({ note }) => {
               className="neeto-ui-text-gray-600 mr-2 leading-5"
               style="body3"
             >
-              Created {calculateCreatedAgo(createdAt)}
+              Created {calculateCreatedAgo(created_at)}
             </Typography>
           </Tooltip>
           <Avatar
@@ -50,4 +54,4 @@ const NotesCard = ({ note }) => {
   );
 };
 
-export default NotesCard;
+export default Card;

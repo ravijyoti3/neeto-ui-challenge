@@ -8,8 +8,8 @@ import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 import MenuBar from "components/Dashboard/Notes/LeftMenuBar";
 
+import NotesCard from "./Card";
 import DeleteAlert from "./DeleteAlert";
-import NotesCard from "./NotesCard";
 import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
