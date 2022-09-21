@@ -68,16 +68,14 @@ const Notes = () => {
           }}
         />
         {notes.length ? (
-          <>
-            {notes.map(note => (
-              <Card
-                key={note.id}
-                note={note}
-                setSelectedNote={setSelectedNote}
-                setShowDeleteAlert={setShowDeleteAlert}
-              />
-            ))}
-          </>
+          notes.map(note => (
+            <Card
+              key={note.id}
+              note={note}
+              setSelectedNote={setSelectedNote}
+              setShowDeleteAlert={setShowDeleteAlert}
+            />
+          ))
         ) : (
           <EmptyState
             image={EmptyNotesListImage}

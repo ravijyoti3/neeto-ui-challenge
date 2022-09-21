@@ -12,7 +12,7 @@ const DeleteAlert = ({ refetch, onClose, selectedNote, setSelectedNote }) => {
   const handleDelete = async () => {
     try {
       setDeleting(true);
-      await notesApi.destroy({ ids: id });
+      await notesApi.destroy({ ids: [id] });
       onClose();
       setSelectedNote({});
       refetch();
