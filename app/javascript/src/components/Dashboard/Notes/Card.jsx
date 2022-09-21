@@ -6,8 +6,8 @@ import { Typography, Tag, Dropdown, Avatar, Tooltip } from "neetoui";
 import { calculateCreatedAgo, calculateDateToWeekday } from "./utils";
 
 const Card = ({ note }) => {
-  const { MenuItem } = Dropdown;
   const { title, description, created_at } = note;
+
   return (
     <div className="neeto-ui-shadow-xs neeto-ui-rounded-none neeto-ui-border-gray-300 mb-4 w-full border py-3 px-4">
       <div className="flex items-center justify-between">
@@ -15,8 +15,8 @@ const Card = ({ note }) => {
           {title}
         </Typography>
         <Dropdown buttonSize="small" buttonStyle="text" icon={MenuVertical}>
-          <MenuItem.Button>Edit</MenuItem.Button>
-          <MenuItem.Button>Delete</MenuItem.Button>
+          <li>Edit</li>
+          <li>Delete</li>
         </Dropdown>
       </div>
       <Typography className="neeto-ui-text-gray-600 leading-5" style="body2">

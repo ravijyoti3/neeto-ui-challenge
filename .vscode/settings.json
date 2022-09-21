@@ -18,7 +18,5 @@
     }
   },
   "ruby.format": "rubocop",
-  "cSpell.words": [
-    "neetoui"
-  ],
+  "cSpell.words": ["neeto", "neetoicons", "neetoui"]
 }
