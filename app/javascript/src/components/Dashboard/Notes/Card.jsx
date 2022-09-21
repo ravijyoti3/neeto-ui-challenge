@@ -5,8 +5,13 @@ import { Typography, Tag, Dropdown, Avatar, Tooltip } from "neetoui";
 
 import { calculateCreatedAgo, calculateDateToWeekday } from "./utils";
 
-const Card = ({ note }) => {
+const Card = ({ note, setSelectedNote, setShowDeleteAlert }) => {
   const { title, description, created_at } = note;
+
+  const handleDelete = () => {
+    setSelectedNote(note);
+    setShowDeleteAlert(true);
+  };
 
   return (
     <div className="neeto-ui-shadow-xs neeto-ui-rounded-none neeto-ui-border-gray-300 mb-4 w-full border py-3 px-4">
@@ -16,7 +21,7 @@ const Card = ({ note }) => {
         </Typography>
         <Dropdown buttonSize="small" buttonStyle="text" icon={MenuVertical}>
           <li>Edit</li>
-          <li>Delete</li>
+          <li onClick={handleDelete}>Delete</li>
         </Dropdown>
       </div>
       <Typography className="neeto-ui-text-gray-600 leading-5" style="body2">
