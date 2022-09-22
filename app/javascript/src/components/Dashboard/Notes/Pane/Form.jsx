@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
+import { Check } from "neetoicons";
 import { Button, Pane } from "neetoui";
-import { Input, Textarea } from "neetoui/formik";
+import { Input, Textarea, Select } from "neetoui/formik";
 
 import notesApi from "apis/notes";
+import { buildSelectOption } from "utils/index";
 
-import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
+import {
+  NOTES_FORM_VALIDATION_SCHEMA,
+  ROLE_DATA,
+  TAGS_DATA,
+} from "../constants";
 
 const NoteForm = ({ onClose, refetch, note, isEdit }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -38,7 +44,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
           <Pane.Body className="space-y-6">
             <Input
               required
-              className="w-full flex-grow-0"
+              className="w-full flex-grow-0 rounded-sm"
               label="Title"
               name="title"
             />
@@ -47,20 +53,47 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Description"
               name="description"
-              rows={8}
+              rows={1}
+            />
+            <Select
+              isClearable
+              isSearchable
+              required
+              className="w-full flex-grow-0"
+              label="Assigned Contact"
+              name="role"
+              options={buildSelectOption(ROLE_DATA)}
+              placeholder="Select Role"
+            />
+            <Select
+              isClearable
+              isMulti
+              isSearchable
+              required
+              className="w-full flex-grow-0"
+              label="Tags"
+              name="tags"
+              options={buildSelectOption(TAGS_DATA)}
+              placeholder="Select Tags"
             />
           </Pane.Body>
           <Pane.Footer>
             <Button
-              className="mr-3"
+              className="mr-3 rounded-sm bg-gray-800 hover:bg-gray-600"
               disabled={isSubmitting}
+              icon={Check}
               label={isEdit ? "Update" : "Save changes"}
               loading={isSubmitting}
               style="primary"
               type="submit"
               onClick={() => setSubmitted(true)}
             />
-            <Button label="Cancel" style="text" onClick={onClose} />
+            <Button
+              className="rounded-sm"
+              label="Cancel"
+              style="text"
+              onClick={onClose}
+            />
           </Pane.Footer>
         </Form>
       )}
