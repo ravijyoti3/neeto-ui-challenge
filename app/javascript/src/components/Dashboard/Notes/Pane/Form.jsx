@@ -6,7 +6,6 @@ import { Button, Pane } from "neetoui";
 import { Input, Textarea, Select } from "neetoui/formik";
 
 import notesApi from "apis/notes";
-import { buildSelectOption } from "utils/index";
 
 import {
   NOTES_FORM_VALIDATION_SCHEMA,
@@ -62,7 +61,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Assigned Contact"
               name="role"
-              options={buildSelectOption(ROLE_DATA)}
+              options={ROLE_DATA}
               placeholder="Select Role"
             />
             <Select
@@ -73,7 +72,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="w-full flex-grow-0"
               label="Tags"
               name="tags"
-              options={buildSelectOption(TAGS_DATA)}
+              options={TAGS_DATA}
               placeholder="Select Tags"
             />
           </Pane.Body>
@@ -92,6 +91,7 @@ const NoteForm = ({ onClose, refetch, note, isEdit }) => {
               className="rounded-sm"
               label="Cancel"
               style="text"
+              type="reset"
               onClick={onClose}
             />
           </Pane.Footer>
