@@ -10,11 +10,11 @@ import MenuBar from "components/Dashboard/Notes/LeftMenuBar";
 
 import Card from "./Card";
 import DeleteAlert from "./DeleteAlert";
-import NewNotePane from "./Pane/Create";
+import Create from "./Pane/Create";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
-  const [showNewNotePane, setShowNewNotePane] = useState(false);
+  const [showPane, setShowPane] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNote, setSelectedNote] = useState({});
@@ -55,7 +55,7 @@ const Notes = () => {
               icon="ri-add-line"
               label="Add new note"
               size="small"
-              onClick={() => setShowNewNotePane(true)}
+              onClick={() => setShowPane(true)}
             />
           }
           menuBarToggle={() => {
@@ -79,16 +79,16 @@ const Notes = () => {
         ) : (
           <EmptyState
             image={EmptyNotesListImage}
-            primaryAction={() => setShowNewNotePane(true)}
+            primaryAction={() => setShowPane(true)}
             primaryActionLabel="Add new note"
             subtitle="Add your notes to send customized emails to them."
             title="Looks like you don't have any notes!"
           />
         )}
-        <NewNotePane
+        <Create
           fetchNotes={fetchNotes}
-          setShowPane={setShowNewNotePane}
-          showPane={showNewNotePane}
+          setShowPane={setShowPane}
+          showPane={showPane}
         />
         {showDeleteAlert && (
           <DeleteAlert
