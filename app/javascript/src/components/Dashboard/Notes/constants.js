@@ -1,7 +1,7 @@
-import { buildSelectOption } from "utils";
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
-export const ROLE_DATA = buildSelectOption([
+export const ROLE_DATA = buildSelectOptions([
   "UX Designer",
   "Tester",
   "Analyst",
@@ -9,7 +9,7 @@ export const ROLE_DATA = buildSelectOption([
   "Front-end developer",
 ]);
 
-export const TAGS_DATA = buildSelectOption([
+export const TAGS_DATA = buildSelectOptions([
   "Getting Started",
   "Onboarding",
   "User Flow",

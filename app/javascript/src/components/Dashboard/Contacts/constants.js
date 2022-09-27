@@ -1,4 +1,4 @@
-import { buildSelectOption } from "utils";
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
 export const ROW_DATA = [
@@ -46,7 +46,7 @@ export const ROW_DATA = [
   },
 ];
 
-export const ROLE_DATA = buildSelectOption([
+export const ROLE_DATA = buildSelectOptions([
   "UX Designer",
   "Tester",
   "Analyst",
