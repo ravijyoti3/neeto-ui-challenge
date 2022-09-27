@@ -7,6 +7,7 @@ import { calculateCreatedAgo, calculateDateToWeekday } from "./utils";
 
 const Card = ({ note, setSelectedNote, setShowDeleteAlert }) => {
   const { title, description, created_at } = note;
+  const { MenuItem } = Dropdown;
 
   const handleDelete = () => {
     setSelectedNote(note);
@@ -20,8 +21,10 @@ const Card = ({ note, setSelectedNote, setShowDeleteAlert }) => {
           {title}
         </Typography>
         <Dropdown buttonSize="small" buttonStyle="text" icon={MenuVertical}>
-          <li>Edit</li>
-          <li onClick={handleDelete}>Delete</li>
+          <MenuItem.Button>Edit</MenuItem.Button>
+          <MenuItem.Button style="danger" onClick={handleDelete}>
+            Delete
+          </MenuItem.Button>
         </Dropdown>
       </div>
       <Typography className="neeto-ui-text-gray-600 leading-5" style="body2">
