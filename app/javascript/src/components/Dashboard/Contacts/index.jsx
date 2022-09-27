@@ -5,12 +5,14 @@ import { Container, Header } from "neetoui/layouts";
 
 import DeleteAlert from "./DeleteAlert";
 import MenuBar from "./LeftMenuBar";
+import Create from "./Pane/Create";
 import Table from "./Table";
 
-const Notes = () => {
+const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showMenu, setShowMenu] = useState(false);
   const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [showPane, setShowPane] = useState(false);
 
   return (
     <>
@@ -24,6 +26,7 @@ const Notes = () => {
               icon="ri-add-line"
               label="Add Contact"
               size="small"
+              onClick={() => setShowPane(true)}
             />
           }
           menuBarToggle={() => {
@@ -35,6 +38,7 @@ const Notes = () => {
             placeholder: "Search Name, Email, Phone Number, Etc.",
           }}
         />
+        <Create setShowPane={setShowPane} showPane={showPane} />
         <Table setShowDeleteAlert={setShowDeleteAlert} />
         {showDeleteAlert && (
           <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
@@ -44,4 +48,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default Contacts;
