@@ -51,7 +51,7 @@ const Form = ({ onClose }) => {
               isClearable
               isSearchable
               className="w-full flex-grow-0"
-              label="Assigned Contact"
+              label="Role"
               name="role"
               options={ROLE_DATA}
               placeholder="Select Role"
