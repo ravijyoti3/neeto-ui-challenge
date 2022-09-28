@@ -35,7 +35,7 @@ export const FORM_VALIDATION_SCHEMA = yup.object().shape({
       label: yup.string().oneOf(ROLE_DATA.map(role => role.label)),
       value: yup.string().oneOf(ROLE_DATA.map(role => role.value)),
     })
-    .required("Role is required"),
+    .required("Assigned Contact is required"),
   tags: yup
     .array(
       yup
